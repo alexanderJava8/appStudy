@@ -4,18 +4,20 @@ import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class GetTopicServices implements GetTopic {
+public class SaveATopicServices implements SaveTopic {
     private final TopicRepository topicRepository;
 
     @Autowired
-    public GetTopicServices(TopicRepository topicRepository) {
+    public SaveATopicServices(TopicRepository topicRepository) {
         this.topicRepository = topicRepository;
     }
 
     @Override
-    public Topic ById(Long idOfTopic) {
-        return topicRepository.findById(idOfTopic).orElseThrow(() -> new RuntimeException("there is not topic"));
+    @Transactional
+    public Topic save(Topic topic) {
+        return topicRepository.save(topic);
     }
 }
