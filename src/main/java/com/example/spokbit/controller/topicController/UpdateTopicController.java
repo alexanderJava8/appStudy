@@ -4,6 +4,7 @@ import com.example.spokbit.converter.ConverterTopic;
 import com.example.spokbit.dto.TopicDTO;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.services.topicServices.UpdateTopic;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ public final class UpdateTopicController {
     }
 
     @PutMapping(value = "/topics")
+    @Operation(tags = {"getAllTopics"}, operationId = "updateTopics", summary = "this is the summary", description = "description")
     public ResponseEntity<TopicDTO> updateTopic(@RequestBody TopicDTO topic) {
         Topic topicEntity = converterThisTopic.toEntity(topic);
         update.theNext(topicEntity);
