@@ -1,7 +1,9 @@
 package com.example.spokbit.services.topicServices;
 
 import com.example.spokbit.entitys.Topic;
+import com.example.spokbit.exception.NotFoundTopicExceptions;
 import com.example.spokbit.repository.TopicRepository;
+import com.example.spokbit.utils.ExceptionMessagesEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ public class GetTopicServices implements GetTopic {
 
     @Override
     public Topic ById(Long idOfTopic) {
-        return topicRepository.findById(idOfTopic).orElseThrow(() -> new RuntimeException("there is not topic"));
+        return topicRepository.findById(idOfTopic)
+                .orElseThrow(() -> new NotFoundTopicExceptions(ExceptionMessagesEnum.TOPIC_DOES_NOT_EXIST.getValue()));
     }
 }
