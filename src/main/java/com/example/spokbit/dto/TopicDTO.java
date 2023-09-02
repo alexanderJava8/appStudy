@@ -1,6 +1,5 @@
 package com.example.spokbit.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

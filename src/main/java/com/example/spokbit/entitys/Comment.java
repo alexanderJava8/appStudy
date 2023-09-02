@@ -3,6 +3,7 @@ package com.example.spokbit.entitys;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -17,9 +18,31 @@ public class Comment {
     private Long id;
 
     @Column(name = "COMMENTS")
-    private String comments;
+    private String comment;
 
     @ManyToOne
     @JoinColumn(name = "topic_id")
     private Topic topic;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", comment='" + comment + '\'' +
+                ", topic=" + topic +
+                '}';
+    }
 }
