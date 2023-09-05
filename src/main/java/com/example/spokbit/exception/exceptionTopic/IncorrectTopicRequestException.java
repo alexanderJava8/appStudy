@@ -1,4 +1,4 @@
-package com.example.spokbit.exception;
+package com.example.spokbit.exception.exceptionTopic;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,7 +1,7 @@
 package com.example.spokbit.validator;
 
 import com.example.spokbit.entitys.Topic;
-import com.example.spokbit.exception.IncorrectTopicRequestException;
+import com.example.spokbit.exception.exceptionTopic.IncorrectTopicRequestException;
 import com.example.spokbit.util.ExceptionTopicMessagesEnum;
 
 import java.util.Objects;

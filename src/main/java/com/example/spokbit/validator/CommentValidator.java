@@ -1,8 +1,8 @@
 package com.example.spokbit.validator;
 
 import com.example.spokbit.entitys.Comment;
-import com.example.spokbit.exception.IncorrectCommentRequestException;
-import com.example.spokbit.exception.IncorrectTopicRequestException;
+import com.example.spokbit.exception.exceptionComment.IncorrectCommentRequestException;
+import com.example.spokbit.exception.exceptionTopic.IncorrectTopicRequestException;
 import com.example.spokbit.util.ExceptionCommentMessagesEnum;
 import com.example.spokbit.util.ExceptionTopicMessagesEnum;
 

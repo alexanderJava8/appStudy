@@ -1,8 +1,8 @@
 package com.example.spokbit.handler;
 
-import com.example.spokbit.exception.IncorrectTopicRequestException;
+import com.example.spokbit.exception.exceptionTopic.IncorrectTopicRequestException;
 import com.example.spokbit.exception.MessageServicesException;
-import com.example.spokbit.exception.NotFoundTopicExceptions;
+import com.example.spokbit.exception.exceptionTopic.NotFoundTopicExceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
