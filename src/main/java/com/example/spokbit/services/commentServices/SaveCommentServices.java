@@ -1,6 +1,7 @@
 package com.example.spokbit.services.commentServices;
 
 import com.example.spokbit.entitys.Comment;
+import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.exception.exceptionTopic.NotFoundTopicExceptions;
 import com.example.spokbit.repository.CommentRepository;
 import com.example.spokbit.repository.TopicRepository;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 public class SaveCommentServices implements SaveComment {
@@ -33,8 +36,9 @@ public class SaveCommentServices implements SaveComment {
     }
 
     private void existTopic(Comment comment) {
-                 topicRepository
-                .findById(comment.getTopic().getId())
-                .orElseThrow(() -> new NotFoundTopicExceptions(ExceptionTopicMessagesEnum.TOPIC_DOES_NOT_EXIST.getValue()));
+        Optional<Topic> existTopic = topicRepository.findById(comment.getTopic().getId());
+        if (existTopic.isEmpty()) {
+            throw new NotFoundTopicExceptions(ExceptionTopicMessagesEnum.TOPIC_DOES_NOT_EXIST.getValue());
+        }
     }
 }
