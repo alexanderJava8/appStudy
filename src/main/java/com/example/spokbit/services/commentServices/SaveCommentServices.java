@@ -17,8 +17,8 @@ import java.util.Optional;
 
 @Service
 public class SaveCommentServices implements SaveComment {
-    private CommentRepository commentRepository;
-    private TopicRepository topicRepository;
+    private final CommentRepository commentRepository;
+    private final TopicRepository topicRepository;
 
     @Autowired
     public SaveCommentServices(CommentRepository commentRepository, TopicRepository topicRepository) {
