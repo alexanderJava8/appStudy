@@ -29,8 +29,8 @@ public class SaveCommentServices implements SaveComment {
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
     public Comment saveComment(Comment comment) {
-        CommentValidator.valideteThis(comment);
         existTopic(comment);
+        CommentValidator.valideteThis(comment);
 
         return commentRepository.save(comment);
     }
