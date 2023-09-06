@@ -4,6 +4,7 @@ import com.example.spokbit.entitys.Comment;
 import com.example.spokbit.exception.exceptionComment.NotFoundCommentException;
 import com.example.spokbit.repository.CommentRepository;
 import com.example.spokbit.util.ExceptionCommentMessagesEnum;
+import com.example.spokbit.validator.CommentValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,9 @@ public class UpdateCommentServices implements UpdateComment {
     @Override
     public Comment updateThis(Comment comment) {
         Comment commentUpdate = existComment(comment);
-        commentUpdate.setComment(comment.getComment());
+        CommentValidator.valideteThis(comment);
 
+        commentUpdate.setComment(comment.getComment());
         return commentRepository.save(commentUpdate);
     }
 
