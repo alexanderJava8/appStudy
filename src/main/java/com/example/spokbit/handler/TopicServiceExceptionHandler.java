@@ -36,7 +36,7 @@ public class TopicServiceExceptionHandler extends ResponseEntityExceptionHandler
     public ResponseEntity<Object> handleNotFoundTopicExceptions(Exception exception, WebRequest request) {
         MessageServicesException response = new MessageServicesException(exception.getMessage(),
                                                                             request.getDescription(false),
-                                                                            HttpStatus.BAD_REQUEST,
+                                                                            HttpStatus.NOT_FOUND,
                                                                             LocalDateTime.now());
 
         return new ResponseEntity<>(response, response.httpStatus());
