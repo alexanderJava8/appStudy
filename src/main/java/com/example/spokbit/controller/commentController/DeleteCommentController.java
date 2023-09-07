@@ -1,9 +1,11 @@
 package com.example.spokbit.controller.commentController;
 
 import com.example.spokbit.repository.CommentRepository;
+import com.example.spokbit.services.commentServices.DeleteComment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,7 @@ public class DeleteCommentController {
         this.deleteComment = deleteComment;
     }
 
-    @GetMapping(value = "comments/{long_Id_Topic_Comments}")
+    @DeleteMapping(value = "comments/{long_Id_Topic_Comments}")
     public ResponseEntity<Void> deleteComment(@PathVariable("long_Id_Topic_Comments") Long id) {
         deleteComment.delete(id);
 
