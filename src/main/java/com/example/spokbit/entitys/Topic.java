@@ -1,6 +1,7 @@
 package com.example.spokbit.entitys;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 
@@ -24,7 +25,8 @@ public class Topic {
     @Column(name = "NAMES")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "topic")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "topic", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Comment> comments;
 
     @Override
