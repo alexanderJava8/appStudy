@@ -1,3 +1,5 @@
+/*
+
 package com.example.spokbit.auth;
 
 import lombok.RequiredArgsConstructor;
@@ -23,3 +25,4 @@ public class AuthController {
         return ResponseEntity.ok(authService.register(request));
     }
 }
+ */

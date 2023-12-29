@@ -1,3 +1,4 @@
+/*
 package com.example.spokbit.config;
 
 import com.example.spokbit.user.UserRepository;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /*authentication manager*/
+/*
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
@@ -43,3 +45,4 @@ public class ApplicationConfig {
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
     }
 }
+*/

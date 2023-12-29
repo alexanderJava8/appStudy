@@ -1,3 +1,4 @@
+/*
 package com.example.spokbit.user;
 
 import lombok.AllArgsConstructor;
@@ -56,3 +57,4 @@ public class User implements UserDetails {
         return true;
     }
 }
+*/

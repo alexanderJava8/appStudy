@@ -1,3 +1,4 @@
+/*
 package com.example.spokbit.config;
 
 import com.example.spokbit.jwt.JwtAuthenticationFilter;
@@ -48,3 +49,4 @@ public class SecurityConfig {
 }
 
 
+*/
