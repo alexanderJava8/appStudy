@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-/*esto es solo prueba, eliminarlo despues*/
-@CrossOrigin(origins = "http://localhost:63342/")
+/* esto es solo prueba, eliminarlo despues */
+@CrossOrigin(origins = {"http://localhost:5500/", "http://127.0.0.1:5500/"})
 public class SaveTopicController {
     private final SaveTopic topic;
     private final TopicConverter topicConverter;
@@ -27,7 +27,8 @@ public class SaveTopicController {
     }
 
     @PostMapping(value = "/topics")
-    @Operation(tags = {"getAllTopics"}, operationId = "saveTopics", summary = "this is the summary", description = "description")
+    @Operation(tags = {
+            "getAllTopics" }, operationId = "saveTopics", summary = "this is the summary", description = "description")
     public ResponseEntity<TopicDTO> saveTopic(@RequestBody TopicDTO topicDto) {
         Topic topicSave = topic.save(topicConverter.convertTopicDtoToTopicEntity(topicDto));
 

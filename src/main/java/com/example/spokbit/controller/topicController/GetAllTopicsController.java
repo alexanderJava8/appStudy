@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+/*esto es solo prueba, eliminarlo despues*/
+@CrossOrigin(origins = {"http://localhost:5500/", "http://127.0.0.1:5500/"})
 public class GetAllTopicsController {
     private final GetTopics getTopics;
     private final TopicConverter topicConverter;
@@ -30,7 +33,7 @@ public class GetAllTopicsController {
     @GetMapping(value = "/topics")
     @Operation(tags = {"getAllTopics"}, operationId = "getTopics", summary = "this is the summary", description = "description")
     public ResponseEntity<List<TopicDTO>> getAllTopics(@RequestParam(name = "page", defaultValue = "0") int page,
-                                                       @RequestParam(name = "size", defaultValue = "3") int size
+                                                       @RequestParam(name = "size", defaultValue = "15") int size
     ) {
         Pageable pageable = PageRequest.of(page, size);
         List<Topic> topics = getTopics.getAllTopics(pageable);
