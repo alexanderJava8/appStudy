@@ -6,10 +6,10 @@ import com.example.spokbit.exception.exceptionTopic.NotFoundTopicExceptions;
 import com.example.spokbit.repository.CommentRepository;
 import com.example.spokbit.repository.TopicRepository;
 import com.example.spokbit.util.ExceptionTopicMessagesEnum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -17,7 +17,6 @@ public class CommentsByTopicIdServices implements CommentsByTopicId {
     private final CommentRepository commentRepository;
     private final TopicRepository topicRepository;
 
-    @Autowired
     public CommentsByTopicIdServices(CommentRepository commentRepository, TopicRepository topicRepository) {
         this.commentRepository = commentRepository;
         this.topicRepository = topicRepository;
@@ -30,6 +29,7 @@ public class CommentsByTopicIdServices implements CommentsByTopicId {
     }
 
     private void existTopic(Long id) {
+        Objects.requireNonNull(id, "The id must not be null");
         Optional<Topic> topic = topicRepository.findById(id);
 
         if (topic.isEmpty()) {
