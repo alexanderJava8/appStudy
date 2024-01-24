@@ -46,7 +46,7 @@ public class Topic {
     public String toString() {
         return "Topic{" +
                 "id=" + id +
-                ", comments=" + comments +
+                ", name'" + name + '\'' +
                 '}';
     }
 }

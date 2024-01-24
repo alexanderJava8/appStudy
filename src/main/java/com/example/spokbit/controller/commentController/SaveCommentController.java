@@ -19,7 +19,6 @@ public class SaveCommentController {
     private SaveComment saveComment;
     private CommentConverter commentConverter;
 
-    @Autowired
     public SaveCommentController(SaveComment saveComment, CommentConverter commentConverter) {
         this.saveComment = saveComment;
         this.commentConverter = commentConverter;

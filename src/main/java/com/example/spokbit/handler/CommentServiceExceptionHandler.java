@@ -2,6 +2,7 @@ package com.example.spokbit.handler;
 
 import com.example.spokbit.exception.MessageServicesException;
 import com.example.spokbit.exception.exceptionComment.IncorrectCommentRequestException;
+import com.example.spokbit.exception.exceptionComment.IncorrectCommentToUpdateException;
 import com.example.spokbit.exception.exceptionComment.NotFoundCommentException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +50,13 @@ public class CommentServiceExceptionHandler {
         return new ResponseEntity<>(response, response.httpStatus());
     }
 
+    @ExceptionHandler(IncorrectCommentToUpdateException.class)
+    public ResponseEntity<Object> handleNotFoundCommentUpdateException(Exception e, WebRequest request) {
+        MessageServicesException response = new MessageServicesException(e.getMessage(),
+         request.getDescription(false),
+         HttpStatus.NOT_FOUND,
+        LocalDateTime.now());
+
+        return new ResponseEntity<>(response, response.httpStatus());
+    }
 }

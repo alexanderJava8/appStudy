@@ -4,7 +4,6 @@ import com.example.spokbit.converter.CommentConverter;
 import com.example.spokbit.dto.CommentDto;
 import com.example.spokbit.entitys.Comment;
 import com.example.spokbit.services.commentServices.CommentsByTopicId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,7 +20,6 @@ public class GetAllCommentByTopicController {
     private final CommentsByTopicId CommentsByTopicId;
     private final CommentConverter commentConverter;
 
-    @Autowired
     public GetAllCommentByTopicController(CommentsByTopicId commentsByTopicId, CommentConverter commentConverter) {
         CommentsByTopicId = commentsByTopicId;
         this.commentConverter = commentConverter;

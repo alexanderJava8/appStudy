@@ -43,7 +43,7 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", comment='" + comment + '\'' +
-                ", topic=" + topic +
+                ", topic=" + topic + (topic != null ? topic.getId() : null) +
                 '}';
     }
 }
