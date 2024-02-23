@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import com.example.spokbit.dto.CommentToUpdate;
 import com.example.spokbit.exception.exceptionComment.IncorrectCommentToUpdateException;
-import com.example.spokbit.util.ExceptionCommentMessagesEnum;
 import com.example.spokbit.util.ExceptionCommentUpdateMessagesException;
 
 public final class CommentToUpdateValidator {
