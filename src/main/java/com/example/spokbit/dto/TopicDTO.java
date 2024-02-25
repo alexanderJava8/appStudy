@@ -11,9 +11,4 @@ public class TopicDTO {
 
     public TopicDTO() {
     }
-
-    public TopicDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 }
