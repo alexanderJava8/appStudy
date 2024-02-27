@@ -5,6 +5,8 @@ import com.example.spokbit.entitys.Video;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class VideoConverter {
     private final ModelMapper modelMapper;
@@ -19,5 +21,9 @@ public class VideoConverter {
 
     public Video videoDtoToVideoEntity(VideoDto videoDto) {
         return modelMapper.map(videoDto, Video.class);
+    }
+
+    public List<VideoDto> videoEntityToVideoDto(List<Video> videos) {
+        return videos.stream().map(this::videoEntityToVideoDto).toList();
     }
 }
