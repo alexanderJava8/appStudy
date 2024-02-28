@@ -1,14 +1,9 @@
 package com.example.spokbit.services.videoServices;
 
 import com.example.spokbit.entitys.Video;
-import com.example.spokbit.exception.exceptionVideo.URLNotFromYoutube;
 import com.example.spokbit.repository.VideoRepository;
-import com.example.spokbit.util.ExceptionVideoMessagesEnum;
 import com.example.spokbit.validator.VideoValidator;
 import org.springframework.stereotype.Service;
-
-import java.net.URL;
-import java.util.Objects;
 
 @Service
 public class VideoSaveServices implements SaveVideo {

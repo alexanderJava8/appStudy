@@ -1,6 +1,6 @@
 package com.example.spokbit.services.videoServices;
 
-import com.example.spokbit.exception.exceptionVideo.URLNotFromYoutube;
+import com.example.spokbit.exception.exceptionVideo.URLNotFromYoutubeException;
 import com.example.spokbit.util.ExceptionVideoMessagesEnum;
 
 import java.net.MalformedURLException;
@@ -15,10 +15,10 @@ public class IsUrlYoutube {
             if (Objects.equals(host, "www.youtube.com")) {
                 return host.endsWith("youtube.com");
             } else {
-                throw new URLNotFromYoutube(ExceptionVideoMessagesEnum.INCORRECT_REQUEST_URL_NOT_FROM_YOUTUBE.getMessage());
+                throw new URLNotFromYoutubeException(ExceptionVideoMessagesEnum.INCORRECT_REQUEST_URL_NOT_FROM_YOUTUBE.getMessage());
             }
-        } catch (URLNotFromYoutube e) {
-            throw new URLNotFromYoutube(ExceptionVideoMessagesEnum.INCORRECT_REQUEST_URL_NOT_FROM_YOUTUBE.getMessage());
+        } catch (URLNotFromYoutubeException e) {
+            throw new URLNotFromYoutubeException(ExceptionVideoMessagesEnum.INCORRECT_REQUEST_URL_NOT_FROM_YOUTUBE.getMessage());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

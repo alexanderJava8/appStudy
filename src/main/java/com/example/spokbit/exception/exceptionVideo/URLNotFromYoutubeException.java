@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class URLNotFromYoutube extends RuntimeException {
-    public URLNotFromYoutube(String message) {
+public class URLNotFromYoutubeException extends RuntimeException {
+    public URLNotFromYoutubeException(String message) {
         super(message);
     }
 }
