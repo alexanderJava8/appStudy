@@ -21,7 +21,8 @@ public class UpdatedVideoServices implements UpdateVideo{
         VideoValidator.valideteThis(video);
 
         Video videoToUpdate = existVideo(video);
-        videoToUpdate.setUrl(video.getUrl());
+        String newUrl = URLModifier.modifyUrl(video.getUrl());
+        videoToUpdate.setUrl(newUrl);
         videoRepository.save(videoToUpdate);
 
         return videoToUpdate;
