@@ -17,6 +17,7 @@ public class VideoSaveServices implements SaveVideo {
     public Video save(Video video) {
         IsUrlYoutube.isURLYoutube(video.getUrl());
         VideoValidator.valideteThis(video);
+
         String newUrl = URLModifier.modifyUrl(video.getUrl());
         video.setUrl(newUrl);
 
