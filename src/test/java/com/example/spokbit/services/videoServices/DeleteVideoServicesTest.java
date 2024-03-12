@@ -8,17 +8,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
-class UpdatedVideoServicesTest {
+class DeleteVideoServicesTest {
     @Mock
     private VideoRepository videoRepository;
 
     @InjectMocks
-    private UpdatedVideoServices updatedVideoServices;
+    private DeleteVideoServices deleteVideoServices;
 
     @BeforeEach
     void setUp() {
@@ -26,13 +23,7 @@ class UpdatedVideoServicesTest {
     }
 
     @Test
-    void testUpdateVideo() {
-        //arrange
-        Video video = new Video(1L, "https://www.youtube.com/watch?v=5RCD3kThsW0");
-        when(videoRepository.findById(1L)).thenReturn(Optional.of(video));
-        //act
-        Video videoUpdated = updatedVideoServices.updateThisVideo(video);
-        //assert
-        assertEquals(video.getUrl(), videoUpdated.getUrl());
+    void deleteVideo() {
+
     }
 }
