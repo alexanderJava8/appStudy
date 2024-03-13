@@ -24,8 +24,13 @@ public class UpdateTopicServices implements UpdateTopic {
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
     public Topic theNext(Topic topic) {
         TopicValidator.valideteThis(topic);
-        Topic getTopic = topicRepository.findById(topic.getId())
-                .orElseThrow(() -> new NotFoundTopicExceptions(ExceptionTopicMessagesEnum.TOPIC_DOES_NOT_EXIST.getValue()));
+        Topic getTopic = topicRepository
+                .findById(topic.getId())
+                .orElseThrow(
+                        () -> new NotFoundTopicExceptions(
+                                ExceptionTopicMessagesEnum
+                                        .TOPIC_DOES_NOT_EXIST
+                                        .getValue()));
 
         getTopic.setName(topic.getName());
         return topicRepository.save(getTopic);
