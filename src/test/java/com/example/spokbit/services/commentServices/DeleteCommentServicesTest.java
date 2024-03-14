@@ -3,6 +3,7 @@ package com.example.spokbit.services.commentServices;
 import com.example.spokbit.entitys.Comment;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.repository.CommentRepository;
+import com.example.spokbit.repository.TopicRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class DeleteCommentServicesTest {
@@ -34,5 +34,24 @@ class DeleteCommentServicesTest {
         //act
         deleteCommentServices.delete(idComment);
         verify(commentRepository, times(1)).delete(comment);
+    }
+
+    public static class CommentsByTopicIdServicesTest {
+        @Mock
+        private CommentRepository commentRepository;
+        @Mock
+        private TopicRepository topicRepository;
+        @InjectMocks
+        private CommentsByTopicIdServices commentsByTopicIdServices;
+
+        @BeforeEach
+        void setUp() {
+            MockitoAnnotations.openMocks(this);
+        }
+
+        @Test
+        void getByTopic() {
+
+        }
     }
 }
