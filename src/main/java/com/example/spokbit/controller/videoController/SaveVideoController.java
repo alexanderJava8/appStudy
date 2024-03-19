@@ -4,6 +4,7 @@ import com.example.spokbit.converter.VideoConverter;
 import com.example.spokbit.dto.VideoDto;
 import com.example.spokbit.entitys.Video;
 import com.example.spokbit.services.videoServices.SaveVideo;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,8 +26,8 @@ public class SaveVideoController {
 
     @PostMapping(value = "/video")
     public ResponseEntity<VideoDto> saveVideo(@RequestBody VideoDto video) {
-        Video videoEntity = videoConverter.videoDtoToVideoEntity(video);
-        Video videoSaved = saveVideo.save(videoEntity);
+            Video videoEntity = videoConverter.videoDtoToVideoEntity(video);
+            Video videoSaved = saveVideo.save(videoEntity);
 
         return new ResponseEntity<>(videoConverter.videoEntityToVideoDto(videoSaved), HttpStatus.OK);
     }
