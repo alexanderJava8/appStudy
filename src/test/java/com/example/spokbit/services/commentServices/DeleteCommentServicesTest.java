@@ -35,23 +35,4 @@ class DeleteCommentServicesTest {
         deleteCommentServices.delete(idComment);
         verify(commentRepository, times(1)).delete(comment);
     }
-
-    public static class CommentsByTopicIdServicesTest {
-        @Mock
-        private CommentRepository commentRepository;
-        @Mock
-        private TopicRepository topicRepository;
-        @InjectMocks
-        private CommentsByTopicIdServices commentsByTopicIdServices;
-
-        @BeforeEach
-        void setUp() {
-            MockitoAnnotations.openMocks(this);
-        }
-
-        @Test
-        void getByTopic() {
-
-        }
-    }
 }
