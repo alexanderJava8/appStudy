@@ -32,8 +32,9 @@ public class GetAllTopicsController {
 
     @GetMapping(value = "/topics")
     @Operation(tags = {"getAllTopics"}, operationId = "getTopics", summary = "this is the summary", description = "description")
-    public ResponseEntity<List<TopicDTO>> getAllTopics(@RequestParam(name = "page", defaultValue = "0") int page,
-                                                       @RequestParam(name = "size", defaultValue = "15") int size
+    public ResponseEntity<List<TopicDTO>> getAllTopics(
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "15") int size
     ) {
         Pageable pageable = PageRequest.of(page, size);
         List<Topic> topics = getTopics.getAllTopics(pageable);
