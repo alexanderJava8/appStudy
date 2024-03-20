@@ -27,8 +27,8 @@ public class SaveCommentController {
     @PostMapping(value = "/comments")
     public ResponseEntity<CommentDto> saveComment(@RequestBody CommentDto commentDto) {
         Comment newComment = commentConverter.convertCommentDtoToCommentEntity(commentDto);
-        saveComment.saveComment(newComment);
+        Comment comment = saveComment.saveComment(newComment);
 
-        return new ResponseEntity<>(commentConverter.convertCommentEntityToCommentDto(newComment), HttpStatus.OK);
+        return new ResponseEntity<>(commentConverter.convertCommentEntityToCommentDto(comment), HttpStatus.CREATED);
     }
 }
