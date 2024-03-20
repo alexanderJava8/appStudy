@@ -19,11 +19,10 @@ public class DeleteTopicServices implements DeleteTopic {
     }
 
     @Override
-    public ResponseEntity<Void> theNextTopicBy(Long id) {
+    public void theNextTopicBy(Long id) {
         Topic topic = topicRepository.findById(id)
                 .orElseThrow(() -> new NotFoundTopicExceptions(ExceptionTopicMessagesEnum.TOPIC_DOES_NOT_EXIST.getValue()));
 
         topicRepository.delete(topic);
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
