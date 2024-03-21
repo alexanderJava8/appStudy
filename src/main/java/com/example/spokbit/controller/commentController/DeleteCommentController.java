@@ -23,7 +23,6 @@ public class DeleteCommentController {
     @DeleteMapping(value = "comments/{long_Id_Topic_Comments}")
     public ResponseEntity<Void> deleteComment(@PathVariable("long_Id_Topic_Comments") Long id) {
         deleteComment.delete(id);
-
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
