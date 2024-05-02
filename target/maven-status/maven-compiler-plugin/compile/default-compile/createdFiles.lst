@@ -82,5 +82,6 @@ com/example/spokbit/services/videoServices/SaveVideo.class
 com/example/spokbit/AppStudyApplication.class
 com/example/spokbit/services/videoServices/DeleteVideoServices.class
 com/example/spokbit/repository/TopicRepository.class
+com/example/spokbit/config/WebMvcConfig.class
 com/example/spokbit/services/commentServices/CommentByIdServices.class
 com/example/spokbit/util/ExceptionCommentUpdateMessagesException.class

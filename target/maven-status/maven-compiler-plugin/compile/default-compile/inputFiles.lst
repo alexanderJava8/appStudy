@@ -82,6 +82,7 @@
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/services/commentServices/UpdateCommentServices.java
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/services/videoServices/VideoSaveServices.java
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/auth/LoginRequest.java
+/mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/config/WebMvcConfig.java
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/entitys/Topic.java
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/repository/CommentRepository.java
 /mnt/c/users/lenovo/desktop/appStudy/src/main/java/com/example/spokbit/dto/TopicDTO.java
