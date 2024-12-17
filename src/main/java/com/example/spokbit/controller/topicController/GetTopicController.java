@@ -4,7 +4,6 @@ import com.example.spokbit.converter.TopicConverter;
 import com.example.spokbit.dto.TopicDTO;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.services.topicServices.GetTopic;
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +23,6 @@ public class GetTopicController {
     }
 
     @GetMapping(value = "/topics/{topicId}")
-    @Operation(tags = {"getAllTopics"}, operationId = "getTopic", summary = "this is the summary", description = "description")
     public ResponseEntity<TopicDTO> getTopic(@PathVariable("topicId") Long idOfTopic) {
         Topic topic = getTopic.ById(idOfTopic);
 

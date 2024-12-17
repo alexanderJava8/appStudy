@@ -4,7 +4,6 @@ import com.example.spokbit.converter.TopicConverter;
 import com.example.spokbit.dto.TopicDTO;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.services.topicServices.GetTopics;
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +30,6 @@ public class GetAllTopicsController {
     }
 
     @GetMapping(value = "/topics")
-    @Operation(tags = {"getAllTopics"}, operationId = "getTopics", summary = "this is the summary", description = "description")
     public ResponseEntity<List<TopicDTO>> getAllTopics(
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "15") int size

@@ -54,6 +54,7 @@ com/example/spokbit/services/videoServices/UpdateVideo.class
 com/example/spokbit/exception/exceptionComment/NotFoundCommentException.class
 com/example/spokbit/controller/topicController/UpdateTopicController.class
 com/example/spokbit/controller/commentController/SaveCommentController.class
+com/example/spokbit/config/SwaggerConfig.class
 com/example/spokbit/converter/TopicConverter.class
 com/example/spokbit/services/topicServices/DeleteTopicServices.class
 com/example/spokbit/repository/VideoRepository.class
