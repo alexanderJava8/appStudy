@@ -4,6 +4,11 @@ import com.example.spokbit.converter.VideoConverter;
 import com.example.spokbit.dto.VideoDto;
 import com.example.spokbit.entitys.Video;
 import com.example.spokbit.services.videoServices.UpdateVideo;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +24,30 @@ public class UpdateVideoController {
         this.videoConverter = videoConverter;
     }
 
+    @Operation(
+            summary = "Update an existing video",
+            description = "Updates an existing video based on the provided details.",
+            tags = {"Videos"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successfully updated the video",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = VideoDto.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid video data provided"
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Video not found"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Internal server error"
+            )
+    })
     @PutMapping(value = "/video")
     public ResponseEntity<VideoDto> updateVideo(@RequestBody VideoDto newVideo) {
         Video videoEntity = videoConverter.videoDtoToVideoEntity(newVideo);

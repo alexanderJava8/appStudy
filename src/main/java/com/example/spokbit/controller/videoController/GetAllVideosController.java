@@ -4,6 +4,11 @@ import com.example.spokbit.converter.VideoConverter;
 import com.example.spokbit.dto.VideoDto;
 import com.example.spokbit.entitys.Video;
 import com.example.spokbit.services.videoServices.GetAllVideos;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +28,22 @@ public class GetAllVideosController {
         this.videoConverter = videoConverter;
     }
 
+    @Operation(
+            summary = "Get all videos",
+            description = "Retrieves a list of all saved videos",
+            tags = {"Videos"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successfully retrieved list of videos",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = VideoDto.class))
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Internal server error"
+            )
+    })
     @GetMapping(value = "/videos")
     public ResponseEntity<List<VideoDto>> allVideos() {
         List<Video> videosEntity = getAllVideos.getAllVideos();
