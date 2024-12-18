@@ -5,6 +5,11 @@ import com.example.spokbit.dto.CommentDto;
 import com.example.spokbit.dto.CommentToUpdate;
 import com.example.spokbit.entitys.Comment;
 import com.example.spokbit.services.commentServices.UpdateComment;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +28,26 @@ public class UpdateCommentController {
         this.converter = converter;
     }
 
+    @Operation(
+            summary = "Update an existing comment",
+            description = "Updates an existing comment with the provided data in the request body.",
+            tags = {"Comments"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successfully updated the comment",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = CommentDto.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid input provided for the comment"
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Comment not found for the provided ID"
+            )
+    })
     @PutMapping(value = "/comments")
     public ResponseEntity<CommentDto> updateComment(@RequestBody CommentToUpdate comment) {
         Comment updatedComment = updateComment.updateThis(comment);

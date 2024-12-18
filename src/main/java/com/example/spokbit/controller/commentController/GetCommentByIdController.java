@@ -3,6 +3,11 @@ package com.example.spokbit.controller.commentController;
 import com.example.spokbit.dto.CommentDto;
 import com.example.spokbit.entitys.Comment;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +29,26 @@ public class GetCommentByIdController {
         this.commentConverter = commentConverter;
     }
 
+    @Operation(
+            summary = "Get a comment by ID",
+            description = "Retrieves a specific comment based on the provided comment ID.",
+            tags = {"Comments"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successfully retrieved the comment",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = CommentDto.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid comment ID supplied"
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Comment not found for the specified ID"
+            )
+    })
     @GetMapping("/comments/{id}")
     public ResponseEntity<CommentDto> getComment(@PathVariable("id") Long id) {
         Comment comment = commentById.getComment(id);
