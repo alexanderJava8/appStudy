@@ -4,6 +4,11 @@ import com.example.spokbit.converter.TopicConverter;
 import com.example.spokbit.dto.TopicDTO;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.services.topicServices.SaveTopic;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +30,22 @@ public class SaveTopicController {
         this.topicConverter = topicConverter;
     }
 
+    @Operation(
+            summary = "Create a new topic",
+            description = "Creates a new topic using the provided topic data.",
+            tags = {"Topics"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "Topic successfully created",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = TopicDTO.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid topic data provided"
+            )
+    })
     @PostMapping(value = "/topics")
     public ResponseEntity<TopicDTO> saveTopic(@RequestBody TopicDTO topicDto) {
         Topic topicSave = topic.save(topicConverter.convertTopicDtoToTopicEntity(topicDto));

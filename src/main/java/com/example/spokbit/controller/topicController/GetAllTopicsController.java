@@ -4,6 +4,11 @@ import com.example.spokbit.converter.TopicConverter;
 import com.example.spokbit.dto.TopicDTO;
 import com.example.spokbit.entitys.Topic;
 import com.example.spokbit.services.topicServices.GetTopics;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +34,22 @@ public class GetAllTopicsController {
         this.topicConverter = topicConverter;
     }
 
+    @Operation(
+            summary = "Get all topics",
+            description = "Retrieves a paginated list of all topics, with customizable page size and number.",
+            tags = {"Topics"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successfully retrieved the list of topics",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = TopicDTO.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid page or size parameters"
+            )
+    })
     @GetMapping(value = "/topics")
     public ResponseEntity<List<TopicDTO>> getAllTopics(
             @RequestParam(name = "page", defaultValue = "0") int page,
